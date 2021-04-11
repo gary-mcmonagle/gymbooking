@@ -1,8 +1,9 @@
 import { Selector } from 'testcafe';
 const moment = require('moment');
+const username = process.env.LOGIN_USERNAME;
+const password = process.env.LOGIN_PASSWORD;
 
-
-fixture `Getting Started`
+fixture `BOOK`
 .page `https://bookwkg.freedom-leisure.co.uk/withdeanbookings/Account/LogOn`;
 
 const getDate = () => {
@@ -10,11 +11,15 @@ const getDate = () => {
     return threeDaysTime.format("DD/MM/YYYY")
 }
 
-const loginNow = async(t) => {
+const login = async(t) => {
     await t
-    .typeText('#UserName', '******')
-    .typeText('#Password', '******')
+    .typeText('#UserName', username)
+    .typeText('#Password', password)
     .click('#LogOn > div > form > div > fieldset > p:nth-child(5) > input[type=submit]');
+
+    const greeting = await Selector('#logindisplay > div > span').innerText;
+    
+    console.log(greeting);
 }
 const selectGymClasses = async(t) => {
     const activitySelect = Selector('#Activity');
@@ -51,18 +56,14 @@ const book =  async (t) => {
     await t.click('#CentralRegion > div.main-content > div > div > p > a');
 }
 
-const logIn = async () => {
-    test('My first test', async t => {
-        await loginNow(t);
+const run = async () => {
+    test('RUN', async t => {
+        await login(t);
         await getClasses(t);
         await getGyms(t);
         await addEarliestSession(t);
         await book(t);
     });
-}
-
-const run = async () => {
-    await logIn();
 }
 
 run()

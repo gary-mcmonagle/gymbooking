@@ -1,9 +1,9 @@
-name: Target Multiple Node.js Versions and Operating Systems
+name: Book
 on: [push]
 
 jobs:
   build:
-    name: Run Tests Across Node.js Versions and Operating Systems
+    name: Run
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -14,7 +14,10 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - uses: actions/checkout@v1
-      - name: Run TestCafe Tests
+      - name: Run
         uses: DevExpress/testcafe-action@latest
+        env: # Or as an environment variable
+          LOGIN_USERNAME: ${{ secrets.USER_NAME }}
+          lOGIN_PASSWORD: ${{ secrets.PASSWORD }}
         with:
           args: "chrome index.js"
