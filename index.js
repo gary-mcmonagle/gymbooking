@@ -9,7 +9,7 @@ fixture `BOOK`
 .page `https://bookwkg.freedom-leisure.co.uk/withdeanbookings/Account/LogOn`;
 
 const getDate = () => {
-    const threeDaysTime = moment().add(2, 'days');
+    const threeDaysTime = moment().add(4, 'days');
     return threeDaysTime.format("DD/MM/YYYY")
 }
 
