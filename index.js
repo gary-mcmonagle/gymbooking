@@ -3,6 +3,8 @@ const moment = require('moment');
 const username = process.env.LOGIN_USERNAME;
 const password = process.env.LOGIN_PASSWORD;
 
+console.log(process.env)
+
 fixture `BOOK`
 .page `https://bookwkg.freedom-leisure.co.uk/withdeanbookings/Account/LogOn`;
 
