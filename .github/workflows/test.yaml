@@ -18,6 +18,6 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         env: # Or as an environment variable
           LOGIN_USERNAME: ${{ secrets.USER_NAME }}
-          lOGIN_PASSWORD: ${{ secrets.PASSWORD }}
+          LOGIN_PASSWORD: ${{ secrets.PASSWORD }}
         with:
           args: "chrome index.js"
