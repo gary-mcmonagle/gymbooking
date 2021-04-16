@@ -56,8 +56,8 @@ const getClasses = async(t) => {
 
 const book =  async (t) => {
     await t.click('#TermsAccepted');
-    // await t.click('#CheckoutSubmit');
-    // await t.click('#CentralRegion > div.main-content > div > div > p > a');
+    await t.click('#CheckoutSubmit');
+    await t.click('#CentralRegion > div.main-content > div > div > p > a');
 }
 
 const run = async () => {
