@@ -45,7 +45,9 @@ const getGyms = async(t) => {
 }
 
 const addEarliestSession = async (t) => {
-    await t.click('#basketControl_78_1')
+    const time = await Selector('#accordion > div > table > tbody > tr:nth-child(1) > td.TimeField').innerText;
+    console.log(time)
+    await t.click('#accordion > div > table > tbody > tr:nth-child(1) > td.LinkField > a')
 } 
 
 const getClasses = async(t) => {
@@ -54,8 +56,8 @@ const getClasses = async(t) => {
 
 const book =  async (t) => {
     await t.click('#TermsAccepted');
-    await t.click('#CheckoutSubmit');
-    await t.click('#CentralRegion > div.main-content > div > div > p > a');
+    // await t.click('#CheckoutSubmit');
+    // await t.click('#CentralRegion > div.main-content > div > div > p > a');
 }
 
 const run = async () => {
